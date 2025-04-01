@@ -139,6 +139,7 @@ func main() {
 						row.CreatedDate[0:4],
 						row.CreatedDate[5:7],
 						row.CreatedDate[8:10],
+						row.UserProfile.Hometown.Location.AdditionalNames.Long,
 					}
 
 					// Append the row to the dataToWrite slice
@@ -155,7 +156,7 @@ func main() {
 		writer := csv.NewWriter(fileHandle)
 
 		// Writing header to the CSV file
-		headers := []string{"Location Name", "Title", "Text", "Rating", "Year", "Month", "Day"}
+		headers := []string{"Location Name", "Title", "Text", "Rating", "Year", "Month", "Day", "Hometown"}
 		err = writer.Write(headers)
 		if err != nil {
 			log.Fatalf("Error writing header to csv: %v", err)
